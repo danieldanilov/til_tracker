@@ -1,4 +1,33 @@
-<div>
-  <h1 class="font-bold text-4xl">Learnings#new</h1>
-  <p>Find me in app/views/learnings/new.html.erb</p>
-</div>
+<h1>Log a New Learning</h1>
+
+<%= form_with(model: @learning, url: learnings_path, method: :post) do |form| %>
+  <% if @learning.errors.any? %>
+    <div style="color: red;">
+      <h2><%= pluralize(@learning.errors.count, "error") %> prohibited this learning from being saved:</h2>
+      <ul>
+        <% @learning.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 1rem;">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, style: "width: 100%;" %>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <%= form.label :body %><br>
+    <%= form.text_area :body, rows: 5, style: "width: 100%;" %>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <%= form.label :tags, "Tags (comma-separated)" %><br>
+    <%= form.text_field :tags, style: "width: 100%;" %>
+  </div>
+
+  <div>
+    <%= form.submit "Log Learning" %>
+  </div>
+<% end %>

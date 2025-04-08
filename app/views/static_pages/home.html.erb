@@ -1,4 +1,24 @@
-<div>
-  <h1 class="font-bold text-4xl">StaticPages#home</h1>
-  <p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="font-bold text-4xl mb-6">TIL Tracker Home</h1>
+
+  <div class="mb-8">
+    <%= link_to "Log a New Learning", new_learning_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4">Recent Learnings</h2>
+
+  <% if @recent_learnings.any? %>
+    <ul class="space-y-4">
+      <% @recent_learnings.each do |learning| %>
+        <li class="border p-4 rounded shadow">
+          <h3 class="text-xl font-medium"><%= learning.title %></h3>
+          <p class="text-sm text-gray-600 mb-2">Logged on: <%= learning.created_at.strftime("%B %d, %Y") %></p>
+          <%# Display body and tags later if needed %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No learnings logged yet. Why not add one?</p>
+  <% end %>
+
 </div>

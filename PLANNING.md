@@ -3,6 +3,8 @@
 ## 🎯 Project Goal
 Build a simple Ruby on Rails TIL (Today I Learned) tracker. The app serves as both a functional TIL log and a self-referential job application for a Junior Rails Programmer role at 37signals, showcasing relevant skills and values.
 
+**Note:** The project root directory is `til_tracker` within the workspace. All paths mentioned should be considered relative to this directory.
+
 ## 🏗️ Stack
 - Ruby 3.2.2 (via rbenv)
 - Rails 7+ (Current: 8.0.1)

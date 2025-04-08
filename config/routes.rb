@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   # Learning Resources (only index, new, create)
-  resources :learnings, only: [:index, :new, :create]
+  resources :learnings, only: [:index, :new, :create] do
+    delete :destroy_multiple, on: :collection
+  end
 
   # Optional: If you need a dedicated path for the TIL list besides /tils
   # get "/tils", to: "tils#index", as: :til_list

@@ -1,4 +1,29 @@
-<div>
-  <h1 class="font-bold text-4xl">Learnings#index</h1>
-  <p>Find me in app/views/learnings/index.html.erb</p>
+<h1>Learnings</h1>
+<p>All the things I've learned, newest first.</p>
+
+<div style="margin-bottom: 1rem;">
+  <%= link_to "Log New Learning", new_learning_path %>
 </div>
+
+<%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
+  <% if @learnings.any? %>
+    <ul>
+      <% @learnings.each do |learning| %>
+        <li style="border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem;">
+          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" style="margin-right: 0.5rem;">
+          <span style="display: inline-block; vertical-align: top;">
+            <h2><%= learning.title %></h2>
+            <p><%= learning.body %></p>
+            <% if learning.tags.present? %>
+              <p><strong>Tags:</strong> <%= learning.tags %></p>
+            <% end %>
+            <small>Logged on: <%= learning.created_at.strftime("%B %d, %Y") %></small>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.submit "Delete Selected", data: { confirm: "Are you sure you want to delete the selected learnings?" } %>
+  <% else %>
+    <p>No learnings have been logged yet.</p>
+  <% end %>
+<% end %>

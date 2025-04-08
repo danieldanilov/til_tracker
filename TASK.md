@@ -18,23 +18,29 @@
 - [x] Create database (`rbenv exec rails db:create`) - Completed Apr 8, 2024 (Already existed)
 - [x] Run migrations (`rbenv exec rails db:migrate`) - Completed Apr 8, 2024
 - [x] Add all generated files to Git and make initial commit - Completed Apr 8, 2024
+- [x] Add basic navigation header to `application.html.erb` - Completed Apr 9, 2024
+- [x] Update placeholder views for static and learning pages - Completed Apr 9, 2024
 
 ## 🔬 Phase 2: Feature Implementation
 
-- [ ] Implement Home page (`static_pages#home`) content.
-- [ ] Implement Hire Me page (`static_pages#hire_me`) content.
-- [ ] Implement About page (`static_pages#about`) content (Optional).
-- [ ] Implement Learnings list page (`learnings#index`).
-    - [ ] Display all Learnings (title, body, tags, created_at).
-    - [ ] Sort by newest first.
-    - [ ] Link to create new Learning.
-- [ ] Implement New Learning form (`learnings#new`).
-    - [ ] Build the form using `form_with`.
-- [ ] Implement Learning creation (`learnings#create`).
-    - [ ] Use strong parameters.
-    - [ ] Add basic model validations (presence of title, body).
-    - [ ] Redirect to `learnings#index` on success.
-    - [ ] Re-render `learnings#new` on validation failure.
+- [x] Implement Home page (`static_pages#home`) content. - Completed Apr 8, 2024
+- [x] Implement Hire Me page (`static_pages#hire_me`) content. - Completed Apr 8, 2024 (Placeholder)
+- [x] Implement About page (`static_pages#about`) content (Optional). - Completed Apr 9, 2024
+- [x] Implement Learnings list page (`learnings#index`). - Completed Apr 9, 2024
+    - [x] Display all Learnings (title, body, tags, created_at). - Completed Apr 9, 2024
+    - [x] Sort by newest first. - Completed Apr 9, 2024
+    - [x] Link to create new Learning. - Completed Apr 9, 2024
+- [x] Implement New Learning form (`learnings#new`). - Completed Apr 9, 2024
+    - [x] Build the form using `form_with`. - Completed Apr 9, 2024
+- [x] Implement Learning creation (`learnings#create`). - Completed Apr 9, 2024
+    - [x] Use strong parameters. - Completed Apr 9, 2024
+    - [x] Add basic model validations (presence of title, body). - Completed Apr 9, 2024
+    - [x] Redirect to `learnings#index` on success. - Completed Apr 9, 2024
+    - [x] Re-render `learnings#new` on validation failure. - Completed Apr 9, 2024
+- [x] Implement multi-delete functionality for Learnings. - Completed Apr 9, 2024
+    - [x] Add checkboxes and delete form to `learnings#index`. - Completed Apr 9, 2024
+    - [x] Add `destroy_multiple` route. - Completed Apr 9, 2024
+    - [x] Add `destroy_multiple` controller action. - Completed Apr 9, 2024
 - [ ] Add basic styling with Tailwind.
 
 ## 🧪 Phase 3: Testing
