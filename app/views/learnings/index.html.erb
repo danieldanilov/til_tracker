@@ -1,17 +1,17 @@
 <h1>Learnings</h1>
 <p>All the things I've learned, newest first.</p>
 
-<div style="margin-bottom: 1rem;">
+<div>
   <%= link_to "Log New Learning", new_learning_path %>
 </div>
 
 <%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
   <% if @learnings.any? %>
-    <ul>
+    <ul class="learnings-list">
       <% @learnings.each do |learning| %>
-        <li style="border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem;">
-          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" style="margin-right: 0.5rem;">
-          <span style="display: inline-block; vertical-align: top;">
+        <li>
+          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>">
+          <span class="learning-details">
             <h2><%= learning.title %></h2>
             <p><%= learning.body %></p>
             <% if learning.tags.present? %>
