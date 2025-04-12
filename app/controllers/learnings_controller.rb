@@ -1,6 +1,6 @@
 class LearningsController < ApplicationController
   def index
-    @learnings = Learning.order(created_at: :desc)
+    @learnings = Learning.order(learned_on: :desc)
   end
 
   def new
@@ -32,6 +32,6 @@ class LearningsController < ApplicationController
   private
 
   def learning_params
-    params.require(:learning).permit(:title, :body, :tags)
+    params.require(:learning).permit(:title, :body, :tags, :learned_on)
   end
 end

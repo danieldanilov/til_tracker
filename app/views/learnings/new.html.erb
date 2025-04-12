@@ -23,6 +23,11 @@
   </div>
 
   <div>
+    <%= form.label :learned_on, "Learned On" %><br>
+    <%= form.date_field :learned_on, value: Date.today %>
+  </div>
+
+  <div>
     <%= form.label :tags, "Tags (comma-separated)" %><br>
     <%= form.text_field :tags %>
   </div>
