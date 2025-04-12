@@ -7,21 +7,22 @@
 
 <%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
   <% if @learnings.any? %>
-    <ul class="learnings-list">
+    <div class="learnings-list">
       <% @learnings.each do |learning| %>
-        <li>
-          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>">
-          <span class="learning-details">
+        <label class="learning-item">
+          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" class="hidden-checkbox">
+          <div class="selection-indicator"></div>
+          <div class="learning-details">
             <h2><%= learning.title %></h2>
             <p><%= learning.body %></p>
             <% if learning.tags.present? %>
               <p><strong>Tags:</strong> <%= learning.tags %></p>
             <% end %>
             <small>Logged on: <%= learning.created_at.strftime("%B %d, %Y") %></small>
-          </span>
-        </li>
+          </div>
+        </label>
       <% end %>
-    </ul>
+    </div>
     <%= form.submit "Delete Selected", data: { confirm: "Are you sure you want to delete the selected learnings?" } %>
   <% else %>
     <p>No learnings have been logged yet.</p>
