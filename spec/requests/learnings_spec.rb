@@ -91,14 +91,14 @@ RSpec.describe "Learnings", type: :request do
 
   describe "DELETE /learnings/multiple" do
     it "deletes the selected learnings" do
-      learnings_to_delete = [learning1, learning3]
+      learnings_to_delete = [ learning1, learning3 ]
       expect {
         delete destroy_multiple_learnings_path, params: { learning_ids: learnings_to_delete.map(&:id) }
       }.to change(Learning, :count).by(-2)
     end
 
     it "redirects to the learnings index with a notice" do
-      learnings_to_delete = [learning1, learning3]
+      learnings_to_delete = [ learning1, learning3 ]
       delete destroy_multiple_learnings_path, params: { learning_ids: learnings_to_delete.map(&:id) }
       expect(response).to redirect_to(learnings_path)
       expect(flash[:notice]).to include("2 learnings deleted successfully.")
@@ -114,7 +114,7 @@ RSpec.describe "Learnings", type: :request do
 
      it "handles deleting non-existent learnings gracefully" do
       expect {
-        delete destroy_multiple_learnings_path, params: { learning_ids: [learning1.id, 9999] } # 9999 doesn't exist
+        delete destroy_multiple_learnings_path, params: { learning_ids: [ learning1.id, 9999 ] } # 9999 doesn't exist
       }.to change(Learning, :count).by(-1) # Only learning1 is deleted
       expect(response).to redirect_to(learnings_path)
       expect(flash[:notice]).to include("1 learning deleted successfully.")
