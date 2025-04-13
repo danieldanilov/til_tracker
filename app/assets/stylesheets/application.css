@@ -222,3 +222,53 @@ input[type="checkbox"].hidden-checkbox:checked + .selection-indicator {
   padding: 1rem;
   background-color: #ffeeee;
 }
+
+/* Filter Controls */
+.filters {
+  margin-bottom: 1.5rem; /* Space above the list */
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee; /* Separator */
+}
+
+.filter-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.tag-link {
+  display: inline-block;
+  background-color: #e9ecef; /* Light grey background */
+  color: #495057; /* Darker grey text */
+  padding: 0.2rem 0.6rem;
+  border-radius: 10rem; /* Pill shape */
+  font-size: 0.85rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem; /* Allow wrapping */
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.tag-link:hover {
+  background-color: #ced4da; /* Slightly darker on hover */
+  color: #343a40;
+  text-decoration: none;
+}
+
+.clear-filter-link {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: #dc3545; /* Reddish color for clear */
+}
+
+.clear-filter-link:hover {
+  color: #a71d2a;
+}
+
+/* Tags within Learning Item */
+.learning-details .tags {
+  margin-top: 0.75rem;
+}
+
+.learning-details .tags strong {
+ margin-right: 0.5rem;
+}

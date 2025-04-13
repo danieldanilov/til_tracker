@@ -1,6 +1,14 @@
 class LearningsController < ApplicationController
   def index
-    @learnings = Learning.order(learned_on: :desc)
+    @learnings = Learning.order(learned_on: :desc, created_at: :desc)
+
+    if params[:tag].present?
+      @learnings = @learnings.where("LOWER(tags) LIKE ?", "%#{params[:tag].downcase}%")
+    end
+
+    @tags = @learnings.map(&:tag_list).flatten.uniq.sort
+
+    @learning = Learning.new
   end
 
   def new

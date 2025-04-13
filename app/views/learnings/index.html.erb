@@ -5,26 +5,50 @@
   <%= link_to "Log New Learning", new_learning_path %>
 </div>
 
-<%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
-  <% if @learnings.any? %>
-    <div class="learnings-list">
-      <% @learnings.each do |learning| %>
-        <label class="learning-item">
-          <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" class="hidden-checkbox">
-          <div class="selection-indicator"></div>
-          <div class="learning-details">
-            <h2><%= learning.title %></h2>
-            <p><%= learning.body %></p>
-            <% if learning.tags.present? %>
-              <p><strong>Tags:</strong> <%= learning.tags %></p>
-            <% end %>
-            <small>Learned on: <%= learning.learned_on.strftime("%B %d, %Y") %></small>
-          </div>
-        </label>
-      <% end %>
-    </div>
-    <%= form.submit "Delete Selected", data: { confirm: "Are you sure you want to delete the selected learnings?" } %>
-  <% else %>
-    <p>No learnings have been logged yet.</p>
+<%# Reason: Container for filter controls %>
+<div class="filters">
+  <% if @tags.any? %>
+    <span class="filter-label">Filter by Tag:</span>
+    <% @tags.each do |tag| %>
+      <%= link_to tag, learnings_path(tag: tag), class: "tag-link" %>
+    <% end %>
+  <% end %>
+
+  <%# Reason: Show clear link only when a filter is active %>
+  <% if params[:tag].present? %>
+    <%= link_to "Clear filter", learnings_path, class: "clear-filter-link" %>
+  <% end %>
+</div>
+
+<%# Reason: Turbo Frame ensures only this section reloads on filtering/deletion %>
+<%= turbo_frame_tag "learnings_list" do %>
+  <%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
+    <% if @learnings.any? %>
+      <div class="learnings-list">
+        <% @learnings.each do |learning| %>
+          <label class="learning-item">
+            <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" class="hidden-checkbox">
+            <div class="selection-indicator"></div>
+            <div class="learning-details">
+              <h2><%= learning.title %></h2>
+              <p><%= learning.body %></p>
+              <%# Reason: Display tags as clickable links for filtering %>
+              <% if learning.tag_list.any? %>
+                <div class="tags">
+                  <strong>Tags:</strong>
+                  <% learning.tag_list.each do |tag| %>
+                    <%= link_to tag, learnings_path(tag: tag), class: "tag-link" %>
+                  <% end %>
+                </div>
+              <% end %>
+              <small>Learned on: <%= learning.learned_on.strftime("%B %d, %Y") %></small>
+            </div>
+          </label>
+        <% end %>
+      </div>
+      <%= form.submit "Delete Selected", data: { turbo_confirm: "Are you sure you want to delete the selected learnings?" } %>
+    <% else %>
+      <p>No learnings found matching your filter.</p> <%# Updated message for filters %>
+    <% end %>
   <% end %>
 <% end %>
