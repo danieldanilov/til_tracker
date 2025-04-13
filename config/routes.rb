@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   # Learning Resources (only index, new, create)
-  resources :learnings, only: [:index, :new, :create] do
+  resources :learnings, only: [ :index, :new, :create ] do
     delete :destroy_multiple, on: :collection
   end
 
