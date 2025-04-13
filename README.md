@@ -58,3 +58,11 @@ It also serves as a self-referential job application, demonstrating core Rails s
 - **No CSS Framework:** Uses simple, hand-crafted CSS (`app/assets/stylesheets/application.css`).
 - **Simple Tagging:** Uses a basic string field for tags to maintain simplicity.
 - **No Authentication:** Focuses on core CRUD functionality.
+
+## Deployment
+
+This application is deployed on Render.
+
+**Live URL:** [https://til-tracker.onrender.com/](https://til-tracker.onrender.com/)
+
+*(Note: The free tier may cause the application to spin down after inactivity, resulting in a short delay on the first visit.)*
