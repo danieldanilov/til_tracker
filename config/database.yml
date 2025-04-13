@@ -79,20 +79,27 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: til_tracker_production
-    username: til_tracker
-    password: <%= ENV["TIL_TRACKER_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: til_tracker_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: til_tracker_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: til_tracker_production_cable
-    migrations_paths: db/cable_migrate
+  <<: *default # Inherit adapter, encoding, pool etc. from the default anchor
+  # Use the DATABASE_URL environment variable provided by Render/hosting
+  # This single URL contains all necessary connection info (user, pass, host, port, dbname)
+  url: <%= ENV["DATABASE_URL"] %>
+
+# Remove the multi-database setup for production for simplicity,
+# it can be added back later if specifically required and configured on the host.
+#  primary: &primary_production
+#    <<: *default
+#    database: til_tracker_production
+#    username: til_tracker
+#    password: <%= ENV["TIL_TRACKER_DATABASE_PASSWORD"] %>
+#  cache:
+#    <<: *primary_production
+#    database: til_tracker_production_cache
+#    migrations_paths: db/cache_migrate
+#  queue:
+#    <<: *primary_production
+#    database: til_tracker_production_queue
+#    migrations_paths: db/queue_migrate
+#  cable:
+#    <<: *primary_production
+#    database: til_tracker_production_cable
+#    migrations_paths: db/cable_migrate
