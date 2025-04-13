@@ -43,7 +43,7 @@ It also serves as a self-referential job application, demonstrating core Rails s
   ```bash
   rbenv exec bin/dev
   ```
-  Visit `http://localhost:3000` in your browser.
+  Visit `http://localhost:8000` in your browser.
 
 ## Running Tests
 
