@@ -18,7 +18,7 @@
             <% if learning.tags.present? %>
               <p><strong>Tags:</strong> <%= learning.tags %></p>
             <% end %>
-            <small>Logged on: <%= learning.created_at.strftime("%B %d, %Y") %></small>
+            <small>Learned on: <%= learning.learned_on.strftime("%B %d, %Y") %></small>
           </div>
         </label>
       <% end %>

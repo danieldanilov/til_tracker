@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_08_193716) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_12_201042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_08_193716) do
     t.string "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "learned_on", default: -> { "CURRENT_DATE" }, null: false
   end
 
   create_table "tils", force: :cascade do |t|
