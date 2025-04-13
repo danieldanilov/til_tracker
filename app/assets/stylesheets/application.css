@@ -249,26 +249,48 @@ input[type="checkbox"].hidden-checkbox:checked + .selection-indicator {
 }
 
 .tag-link:hover {
-  background-color: #ced4da; /* Slightly darker on hover */
-  color: #343a40;
-  text-decoration: none;
+  background-color: #ced4da; /* Slightly darker grey on hover */
+  color: #212529;
 }
 
 .clear-filter-link {
   margin-left: 1rem;
   font-size: 0.9rem;
-  color: #dc3545; /* Reddish color for clear */
 }
 
 .clear-filter-link:hover {
-  color: #a71d2a;
+  color: #0056b3;
 }
 
 /* Tags within Learning Item */
 .learning-details .tags {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .learning-details .tags strong {
- margin-right: 0.5rem;
+  margin-right: 0.3rem;
+}
+
+/* Action Buttons */
+.actions {
+  margin-bottom: 1.5rem; /* Space below button, before filters */
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #218838; /* Darker green */
+  color: white;
+  text-decoration: none;
 }

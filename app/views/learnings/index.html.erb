@@ -1,8 +1,18 @@
 <h1>Learnings</h1>
-<p>All the things I've learned, newest first.</p>
+<%# Reason: Replaced simple intro with more context and links %>
+<p>
+  This app showcases my skills for 37signals.
+  Read more <%= link_to "about the project", about_path %> or <%= link_to "why you should hire me", hire_me_path %>.
+</p>
 
-<div>
-  <%= link_to "Log New Learning", new_learning_path %>
+<%# Reason: Moved second sentence and Log New Learning link here %>
+<p>
+  Below are the things I've learned (newest first):
+</p>
+
+<%# Reason: Styled as a button %>
+<div class="actions">
+  <%= link_to "Log New Learning", new_learning_path, class: "button" %>
 </div>
 
 <%# Reason: Container for filter controls %>
