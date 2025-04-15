@@ -89,6 +89,55 @@ RSpec.describe "Learnings", type: :request do
     end
   end
 
+  describe "GET /learnings/:id/edit" do
+    it "returns http success" do
+      get edit_learning_path(learning1)
+      expect(response).to have_http_status(:success)
+      expect(response.body).to include("Edit Learning")
+      expect(response.body).to include(learning1.title)
+    end
+  end
+
+  describe "PATCH /learnings/:id" do
+    context "with valid parameters" do
+      let(:new_attributes) {
+        { title: "Updated Ruby Basics", body: "Updated body", tags: "ruby, updated", learned_on: Date.today - 3.days }
+      }
+
+      it "updates the requested learning" do
+        patch learning_path(learning1), params: { learning: new_attributes }
+        learning1.reload
+        expect(learning1.title).to eq("Updated Ruby Basics")
+        expect(learning1.body).to eq("Updated body")
+        expect(learning1.tags).to eq("ruby, updated")
+        expect(learning1.learned_on).to eq(Date.today - 3.days)
+      end
+
+      it "redirects to the learnings index" do
+        patch learning_path(learning1), params: { learning: new_attributes }
+        expect(response).to redirect_to(learnings_path)
+        expect(flash[:notice]).to eq("Learning updated successfully.")
+      end
+    end
+
+    context "with invalid parameters" do
+      let(:invalid_attributes) { { title: "", body: "" } } # Invalid: missing title and body
+
+      it "does not update the learning" do
+        original_title = learning1.title
+        patch learning_path(learning1), params: { learning: invalid_attributes }
+        learning1.reload
+        expect(learning1.title).to eq(original_title)
+      end
+
+      it "re-renders the 'edit' template" do
+        patch learning_path(learning1), params: { learning: invalid_attributes }
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
   describe "DELETE /learnings/multiple" do
     it "deletes the selected learnings" do
       learnings_to_delete = [ learning1, learning3 ]

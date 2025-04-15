@@ -52,6 +52,8 @@
                 </div>
               <% end %>
               <small>Learned on: <%= learning.learned_on.strftime("%B %d, %Y") %></small>
+              <%# Reason: Add Edit link alongside date %>
+              <small><%= link_to "Edit", edit_learning_path(learning) %></small>
             </div>
           </label>
         <% end %>

@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get "hire-me", to: "static_pages#hire_me"
   get "about", to: "static_pages#about"
 
-  # Learning Resources (only index, new, create)
-  resources :learnings, only: [ :index, :new, :create ] do
+  # Learning Resources (now including edit/update)
+  resources :learnings, only: [ :index, :new, :create, :edit, :update ] do
     delete :destroy_multiple, on: :collection
   end
 
