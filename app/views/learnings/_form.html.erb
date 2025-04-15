@@ -1,0 +1,38 @@
+<%= form_with(model: learning) do |form| %>
+  <% if learning.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(learning.errors.count, "error") %> prohibited this learning from being saved:</h2>
+      <ul>
+        <% learning.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body, rows: 5 %>
+  </div>
+
+  <div>
+    <%= form.label :learned_on, "Learned On" %><br>
+    <%# Reason: Use existing date if available (editing), otherwise default to today (new) %>
+    <%= form.date_field :learned_on, value: (learning.learned_on || Date.today) %>
+  </div>
+
+  <div>
+    <%= form.label :tags, "Tags (comma-separated)" %><br>
+    <%= form.text_field :tags %>
+  </div>
+
+  <div>
+    <%# Reason: Change button text based on whether the record is persisted %>
+    <%= form.submit (learning.persisted? ? "Update Learning" : "Log Learning") %>
+  </div>
+<% end %>
