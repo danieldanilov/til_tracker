@@ -28,7 +28,7 @@ It also serves as a self-referential job application, demonstrating core Rails s
     ```
 3.  **Install dependencies:**
     ```bash
-    # Reason: Use rbenv exec for consistency, avoids potential shell issues
+    # Reason: Use rbenv exec for consistency, avoids potential shell issues with gem installation
     rbenv exec bundle install
     ```
 4.  **Create and migrate the database:**
@@ -41,9 +41,16 @@ It also serves as a self-referential job application, demonstrating core Rails s
 
 - **Start the development server:**
   ```bash
-  rbenv exec bin/dev
+  # Reason: Use ./bin/dev directly. `rbenv exec bin/dev` may fail due to shell/rbenv path issues.
+  ./bin/dev
   ```
-  Visit `http://localhost:8000` in your browser.
+  The server typically runs on `http://localhost:3000` by default.
+
+  If port 3000 is in use, you can specify a different port using the `PORT` environment variable:
+  ```bash
+  PORT=8000 ./bin/dev
+  ```
+  Then visit `http://localhost:8000` (or your chosen port).
 
 ## Running Tests
 
