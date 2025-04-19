@@ -51,7 +51,9 @@
             <div class="selection-indicator"></div>
             <div class="learning-details">
               <h2><%= learning.title %></h2>
-              <p><%= learning.body %></p>
+              <%# Reason: Use custom helper to format body with bold keywords and line breaks %>
+              <%= format_learning_body(learning.body) %>
+
               <%# Reason: Display tags as clickable links for filtering %>
               <% if learning.tag_list.any? %>
                 <div class="tags">
