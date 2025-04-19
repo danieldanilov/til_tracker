@@ -1,6 +1,6 @@
-<%= form_with(model: learning) do |form| %>
+<%= form_with(model: learning, local: true, html: { class: "form-container" }) do |form| %>
   <% if learning.errors.any? %>
-    <div class="form-errors">
+    <div id="error_explanation">
       <h2><%= pluralize(learning.errors.count, "error") %> prohibited this learning from being saved:</h2>
       <ul>
         <% learning.errors.full_messages.each do |message| %>
@@ -10,29 +10,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: "Describe the core learning concisely." %>
   </div>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, rows: 5 %>
+  <div class="form-group">
+    <%= form.label :body %>
+    <%= form.text_area :body, rows: 10, placeholder: "Elaborate on the details, context, examples, and 'aha!' moments. Line breaks are supported." %>
   </div>
 
-  <div>
-    <%= form.label :learned_on, "Learned On" %><br>
-    <%# Reason: Use existing date if available (editing), otherwise default to today (new) %>
-    <%= form.date_field :learned_on, value: (learning.learned_on || Date.today) %>
+  <div class="form-group">
+    <%= form.label :learned_on, "Learned on (YYYY-MM-DD)" %>
+    <%# Default value set here ensures it appears on the *new* form %>
+    <%# For edits, the existing value will populate automatically %>
+    <%= form.date_field :learned_on, value: learning.learned_on || Date.today %>
   </div>
 
-  <div>
-    <%= form.label :tags, "Tags (comma-separated)" %><br>
-    <%= form.text_field :tags %>
+  <div class="form-group">
+    <%= form.label :tags %>
+    <p id="tags-hint" class="form-hint">Add comma-separated tags. They help filter learnings later.</p>
+    <%= form.text_field :tags, placeholder: "e.g., rails, stimulus, css, bugfix", aria: { describedby: "tags-hint" } %>
   </div>
 
-  <div>
-    <%# Reason: Change button text based on whether the record is persisted %>
-    <%= form.submit (learning.persisted? ? "Update Learning" : "Log Learning") %>
+  <div class="actions">
+    <%= form.submit (learning.new_record? ? "Log Learning" : "Update Learning"), class: "button" %>
   </div>
 <% end %>
