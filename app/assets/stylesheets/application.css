@@ -271,14 +271,26 @@ input[type="checkbox"].hidden-checkbox:checked + .selection-indicator {
   margin-right: 0.3rem;
 }
 
-/* Action Buttons */
+/* Action Buttons Container (Top of Learnings Index) */
 .actions {
-  margin-bottom: 1.5rem; /* Space below button, before filters */
+  display: flex;             /* Use flexbox for layout */
+  align-items: center;     /* Vertically align items */
+  margin-bottom: 1.5rem;   /* Space below buttons, before filters */
 }
 
-.button {
+/* Add margin to the first button for spacing */
+.actions .button {
+  margin-right: 0.5rem;
+}
+
+/* Style for individual action buttons/links */
+.button,
+input[type="submit"] {
   display: inline-block;
   padding: 0.5rem 1rem;
+  box-sizing: border-box; /* Ensure padding is included in width calculation consistently */
+  line-height: 1.5; /* Explicitly set line-height */
+  vertical-align: middle; /* Align vertically the same */
   background-color: #28a745; /* Green */
   color: white;
   border: none;
@@ -289,8 +301,18 @@ input[type="checkbox"].hidden-checkbox:checked + .selection-indicator {
   text-decoration: none;
 }
 
-.button:hover {
+.button:hover,
+input[type="submit"]:not(:disabled):hover {
   background-color: #218838; /* Darker green */
   color: white;
   text-decoration: none;
+}
+
+/* Specific style for the delete button (using form submit) */
+.actions input[type="submit"] {
+  background-color: #dc3545; /* Red for delete */
+}
+
+.actions input[type="submit"]:not(:disabled):hover {
+  background-color: #c82333; /* Darker red for delete hover */
 }

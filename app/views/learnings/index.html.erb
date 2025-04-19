@@ -10,33 +10,43 @@
   Below are the things I've learned (newest first):
 </p>
 
-<%# Reason: Styled as a button %>
-<div class="actions">
-  <%= link_to "Log New Learning", new_learning_path, class: "button" %>
-</div>
+<%# REASON: Form now wraps the top actions, filters, and the list %>
+<%# REASON: Removed data-controller='selection' - moved to body tag for testing %>
+<%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
 
-<%# Reason: Container for filter controls %>
-<div class="filters">
-  <% if @tags.any? %>
-    <span class="filter-label">Filter by Tag:</span>
-    <% @tags.each do |tag| %>
-      <%= link_to tag, learnings_path(tag: tag), class: "tag-link" %>
+  <%# REASON: Container for top action buttons, moved inside form %>
+  <div class="actions">
+    <%= link_to "Log New Learning", new_learning_path, class: "button" %>
+    <%# REASON: Delete button moved here. Removed Stimulus target and disabled attribute. %>
+    <%= form.submit "Delete Selected",
+                    data: {
+                      # REASON: Removed turbo_confirm as it wasn't working and will be revisited.
+                      # turbo_confirm: "Are you sure you want to delete the selected learnings?"
+                    } %>
+  </div>
+
+  <%# REASON: Filters moved inside form, below actions %>
+  <div class="filters">
+    <% if @tags.any? %>
+      <span class="filter-label">Filter by Tag:</span>
+      <% @tags.each do |tag| %>
+        <%= link_to tag, learnings_path(tag: tag), class: "tag-link" %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <%# Reason: Show clear link only when a filter is active %>
-  <% if params[:tag].present? %>
-    <%= link_to "Clear filter", learnings_path, class: "clear-filter-link" %>
-  <% end %>
-</div>
+    <%# Reason: Show clear link only when a filter is active %>
+    <% if params[:tag].present? %>
+      <%= link_to "Clear filter", learnings_path, class: "clear-filter-link" %>
+    <% end %>
+  </div>
 
-<%# Reason: Turbo Frame ensures only this section reloads on filtering/deletion %>
-<%= turbo_frame_tag "learnings_list" do %>
-  <%= form_with(url: destroy_multiple_learnings_path, method: :delete) do |form| %>
+  <%# Reason: Turbo Frame ensures only this section reloads on filtering/deletion %>
+  <%= turbo_frame_tag "learnings_list" do %>
     <% if @learnings.any? %>
       <div class="learnings-list">
         <% @learnings.each do |learning| %>
           <label class="learning-item">
+            <%# REASON: Checkbox - removed Stimulus action and target %>
             <input type="checkbox" name="learning_ids[]" value="<%= learning.id %>" class="hidden-checkbox">
             <div class="selection-indicator"></div>
             <div class="learning-details">
@@ -58,7 +68,6 @@
           </label>
         <% end %>
       </div>
-      <%= form.submit "Delete Selected", data: { turbo_confirm: "Are you sure you want to delete the selected learnings?" } %>
     <% else %>
       <p>No learnings found matching your filter.</p> <%# Updated message for filters %>
     <% end %>
