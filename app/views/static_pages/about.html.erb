@@ -1,4 +1,40 @@
-<h1>About This App</h1>
-<p>This application is a simple 'Today I Learned' (TIL) tracker.</p>
-<p>It's built with Ruby on Rails and serves as a demonstration of core web development skills.</p>
-<p>Feel free to browse the learnings or add your own!</p>
+<h1>About This TIL Tracker</h1>
+
+<p>
+  This application is a simple "Today I Learned" (TIL) tracker, built as part of my application for the
+  <strong>Junior Rails Programmer</strong> role at 37signals.
+</p>
+
+<p>
+  Its primary purpose is to demonstrate practical skills in Ruby on Rails development, following the principles
+  and practices valued by 37signals. This includes:
+</p>
+
+<ul>
+  <li><strong>Standard Rails:</strong> Built on Ruby on Rails 7+, adhering to conventions and keeping things simple.</li>
+  <li><strong>Hotwire for Interactivity:</strong> Features like tag filtering rely on Turbo Frames for efficient updates without complex JavaScript.</li>
+  <li><strong>Hand-crafted CSS:</strong> All styling is done with plain, semantic CSS, avoiding frameworks like Tailwind or Bootstrap. The focus is on clarity and usability.</li>
+  <li><strong>Simplicity:</strong> The application avoids unnecessary layers or dependencies, focusing on core functionality.</li>
+</ul>
+
+<h2>Features</h2>
+<ul>
+  <li>Log new learnings with a title, detailed body, and relevant tags.</li>
+  <li>Assign a specific date to each learning, allowing for retroactive logging.</li>
+  <li>View all learnings, sorted by the date learned.</li>
+  <li>Edit existing learnings.</li>
+  <li>Filter learnings by clicking on tags.</li>
+  <li>Select and delete multiple learnings at once.</li>
+</ul>
+
+<h2>Notes</h2>
+
+<p>
+  It is my first Rails application. Partly, I built it to learn Rails, but also to have a simple tool to log my learnings and share them with you. This app represents an effort to build a useful tool while showcasing craftsmanship and a thoughtful approach to web development.
+</p>
+<p>
+  The development process itself, including challenges faced and decisions made, is documented separately. The <a href="https://github.com/danieldanilov/til_tracker">github repository is here</a>. The app runs on <a href="https://render.com/">Render</a>.
+</p>
+<p>
+  The learnings are real: they were tracked separately in a markdown file, which were later uploaded to the app via <a href="https://github.com/danieldanilov/til_tracker/blob/main/db/seeds.rb">seeds.rb</a>. This also ensures that the learnings are retroactively logged and that you are able to view them in the order they were learned.
+</p>
