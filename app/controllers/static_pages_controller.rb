@@ -9,4 +9,7 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def writing_samples
+  end
 end
