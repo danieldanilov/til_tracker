@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # Static Pages
   get "hire-me", to: "static_pages#hire_me"
   get "about", to: "static_pages#about"
+  get "writing-samples", to: "static_pages#writing_samples"
 
   # Learning Resources (now including edit/update)
   resources :learnings, only: [ :index, :new, :create, :edit, :update ] do

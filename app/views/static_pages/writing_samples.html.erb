@@ -1,0 +1,192 @@
+<% provide(:title, "Writing Samples") %>
+
+<h1>Writing Samples</h1>
+
+<p>I've written a lot over the years. <a href="https://share.cleanshot.com/sb4hKf3jKPJKhFyclRGw" target="_blank" rel="noopener noreferrer">Top level stats</a>: over 500,000 words, almost 1,400 posts, and 2,400 comments published internally at Automattic (<strong>excluding</strong> Slack, Basecamp, and Github). I cannot share all of these, but I will share some examples below.</p>
+
+<p>Other than writing samples, I'd also like to emphasize that I've received <a href="https://share.cleanshot.com/642Xf7CBT1WdhpTzT4wm" target="_blank" rel="noopener noreferrer">a long list of kudos</a> shared by my team members over the years. Kudos is our way of internally recognizing and appreciating coworkers in a public way.</p>
+
+<p><em>Note: most of these are screenshots. You can enlarge them by clicking on them.</em></p>
+
+<h2>P2s (internal blogs at Automattic)</h2>
+
+<h3>How I Work</h3>
+
+<p>This is a little outdated, but it highlights how I worked back when I did support, including workflows and the apps I use(d). Still, it's a good example of how I'd write a pretty general post that's not directly work-related:</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/2bvrXr068L5t03cMhzGQ" target="_blank" rel="noopener noreferrer">How I Work: Daniel Danilov</a></li>
+</ul>
+
+<p>I also document my own learning journey, but most of that is in my personal notes files. Only very few make it to a personal blog I keep, usually those that provide official credentials/certifications. For example, here are all the blog posts I published while learning SQL/Python for my data work at Automattic:</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/zpGRgGf3HFQ8D58VF8wm" target="_blank" rel="noopener noreferrer">DataCamp Courses</a></li>
+</ul>
+
+<h3>Project: Scope of Support</h3>
+
+<p>Here's one example of a project thread I can safely share. It follows a similar communication process to that of 37signals, where updated on progress are expected, where division leads can follow the project thread and receives notifications for every update:</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/bLbyqSJLzQgn4cqX6ygk" target="_blank" rel="noopener noreferrer">Scope of Support: Project Thread</a></li>
+  <li><a href="https://share.cleanshot.com/L1rwf8nCZQkSqqW1KyfP" target="_blank" rel="noopener noreferrer">Scope of Support: Project Summary</a></li>
+</ul>
+
+<h3>Data Analytics</h3>
+
+<h4>Automation Script</h4>
+
+<p>We use a special way of writing SQL internally, which often means changing variables into absolute values when testing locally (as opposed to publishing the end result in Github). This can be very frustrating, and I used an Apple Script to solve this problem, and then shared it with the data division:</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/87Ht14ZTlQDhT4C0zKsT" target="_blank" rel="noopener noreferrer">Automating the Removal of ${} from Table Names in DataGrip Using Automator and AppleScript</a></li>
+</ul>
+
+<h4>Template for structuring data reports</h4>
+
+<p>This is an example of writing documentation for a process that wasn't previously defined, but had to be to ensure consistency among data reports published by the various data teams:</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/GBxzvtQGn3sN4CcBFFlP" target="_blank" rel="noopener noreferrer">New Deep Dive Analysis Scratchpad Available!</a></li>
+</ul>
+
+<h4>Learning Tumblr Analytics</h4>
+
+<p>This is an example of where I've gone through an in-depth SQL analysis on Tumblr, only to learn that the information is stored elsewhere. Tumblr has gone through 4 acquisitions, and the data is quite messy. Thankfully, someone knew where to look, and it gave me an opportunity to complete the analysis accurately (while still keeping the wrong approach so it doesn't happen again).</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/hD9WPsV5JdJjLbtdcQ1b" target="_blank" rel="noopener noreferrer">Custom Themes on the Tumblr Blog Network</a></li>
+</ul>
+
+<h4>Explaining Retention Rates in A/B Tests</h4>
+
+<p>After receiving a data request, we realized that the team is struggling with understanding retention rates. This is a follow up post that I've shared, using the specific experiment as an example, to help explain the process to everyone else in Tumblr.</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/920m90RJFXMrQD2mmYfL" target="_blank" rel="noopener noreferrer">Understanding Retention Rates in A/B Tests</a></li>
+</ul>
+
+<h4>Exploring Measuring <code>timespent</code> Metric</h4>
+
+<p>After working on various analyses, I noticed that the way we define <code>timespent</code> in Tumblr is not consistent. This has turned into its own task that I've tackled to help clarify this confusion for everyone. It required digging through a lot of code (primarily Python with embedded SQL) to isolate the exact definitions.</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/XkKG5Y1DHMwprfvFMv02" target="_blank" rel="noopener noreferrer">Exploring how we measure <code>timespent</code></a></li>
+</ul>
+
+<h4>Auditing Data Tables</h4>
+
+<p>Finding the right tables has become very tricky, since a lot of the tables had similar names, and were impossible to find the correct one.<br>Diving deeper into this resulted in clearing 17 terabytes of unnecessary data.</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/4vzSbp1LJ9pkDGVY5yk9" target="_blank" rel="noopener noreferrer">Data Tables Auditing Summary</a></li>
+</ul>
+
+<h4>Replacing all KPI Charts with Superset & Looker</h4>
+
+<p>This was a pretty big project I've worked on, reviewing all of Tumblr's KPI charts and replacing them with more modern tools, specifically Superset and Looker (or both). Behind the scenes, this required rebuilding the dashboards in both services, using LookML and custom SQL queries, and making sure the data pipeline is updated via Airflow and updated to our Python code.</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/F2TNs7NgN3MQYgmVcs4C" target="_blank" rel="noopener noreferrer">Replacing all KPI charts with Superset and Looker; deprecating Vizzie</a></li>
+</ul>
+
+<h4>DAG Optimization and ETL Failure resolution</h4>
+
+<p>This is a summary of an issue that was quite long lasting (almost 4 months) and required the full support of Tumblr Analytics as well as our Core Engineering team to tackle. This post aimed to capture the process and the learnings along the way.</p>
+<ul>
+  <li><a href="https://share.cleanshot.com/cTF7dD8RVVDKLWxxMG4C" target="_blank" rel="noopener noreferrer">User Summary DAG Optimization and ETL Failure Resolved</a></li>
+</ul>
+
+<h4>Understanding A8C UDFs in Spark, Hive, and Trino</h4>
+
+<p>Data at Automattic often uses various user-defined functions but these were not documented well, and therefore, made onboarding into the team very confusing. I've taken it upon myself to learn, understand, and document the various UDFs that existed to make it easier for everyone else. It's a good example of how I'd approach documentation.</p>
+<ul>
+  <li>Updated internal documentation: <a href="https://share.cleanshot.com/ztV7ZbbggfCFDtHzCW7d" target="_blank" rel="noopener noreferrer">Understanding A8C UDFs in Spark, Hive, and Trino</a></li>
+  <li>Shared an announcement post to ensure everyone knows it exists now: <a href="https://share.cleanshot.com/47ZH4lcMFMgtMW31hr3t" target="_blank" rel="noopener noreferrer">New Field Guide: Understanding A8C UDFs</a></li>
+</ul>
+
+<h2>Public-facing posts</h2>
+
+<h3>Data.blog</h3>
+
+<p>I've also authored a few posts on our public facing blog, data.blog. Two in particular are relevant:</p>
+<ul>
+  <li><a href="https://data.blog/2024/01/24/from-support-to-data-science-and-analytics-my-journey-at-automattic/" target="_blank" rel="noopener noreferrer">From Support to Data Science and Analytics: My Journey at Automattic</a>.</li>
+  <li>Summary of a meetup project we've completed. <a href="https://data.blog/2023/12/18/hack-project-support-feedback-firehose/" target="_blank" rel="noopener noreferrer">Hack Project: Creating a tool to translate customer feedback into product insights</a>. This is still being used today by Tumblr's support and product teams.</li>
+</ul>
+
+<h3>DanielDanilov.com</h3>
+
+<p>I also published a couple on my own blog post, though, not nearly as often as I'd like to. For some reason, I find it easy to write for work, but much harder to write for myself. Still, there's one post in particular that I'm pretty happy with: <a href="https://danieldanilov.com/write-to-help-yourself-publish-to-help-others/" target="_blank" rel="noopener noreferrer">Write to help yourself, publish to help others</a>.</p>
+
+<p>This one is also a good one, though, it's mostly a collection of questions I'd occasionally look at when preparing for 1-1s back when I was a team lead: <a href="https://danieldanilov.com/questions-for-1-1s-and-teams-a-primer-for-remote-communication/" target="_blank" rel="noopener noreferrer">Questions for 1-1s and teams – a primer for remote communication</a>.</p>
+
+<p>Now that I'm applying for this role, I'm extra sad that I don't have more public resources to pull from!</p>
+
+<h3>WordCamp Asia</h3>
+
+<p>I've been an organizer in WordCamp Asia 2025. As part of my work, I published a couple of blog posts:</p>
+<ul>
+  <li><a href="https://asia.wordcamp.org/2025/why-you-should-become-a-micro-sponsor-at-wordcamp-asia-2025/" target="_blank" rel="noopener noreferrer">Why You Should Become a Micro Sponsor at WordCamp Asia 2025</a></li>
+  <li><a href="https://asia.wordcamp.org/2025/level-up-your-networking-experience-at-wordcamp-asia/" target="_blank" rel="noopener noreferrer">Level Up Your Networking Experience at WordCamp Asia</a>: as part of the work that went towards encouraging networking in WordCamps, and my position internally at Automattic, I was able to leverage my connection to the company to launch a new feature in Gravatar.
+    <ul>
+      <li><a href="https://share.cleanshot.com/L6rgY3Yxn4Fpllj9WQ9c" target="_blank" rel="noopener noreferrer">This stared off with me pitching the idea to Gravatar team</a>.</li>
+      <li><a href="https://share.cleanshot.com/DZvgfzFx9pDgVlTRNBMQ" target="_blank" rel="noopener noreferrer">Continued off to become a project thread</a>. I was responsible for actually launching it during the event.</li>
+      <li><a href="https://share.cleanshot.com/zmkr5y0pwby3x2N54wrc" target="_blank" rel="noopener noreferrer">I summarized the impact here</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Github</h2>
+
+<p>While I don't have many decent PRs to share from Open Source contributions, I will share some example PRs from work I've done internally at Automattic that do not reveal any personal information.</p>
+
+<h4>People Analytics</h4>
+
+<h5>Add requester_waiting_time_intervals and _summary metrics for tumblr tickets</h5>
+<p><a href="https://share.cleanshot.com/zQ3yXJbwn4RzjV7ws93m" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/sLJ3G9tYvV9DyFT90H3k" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add Zendesk Tumblr insights schema and SQL transformation</h5>
+<p><a href="https://share.cleanshot.com/W5083CM7bzg3wyfrFYK4" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/8zLzw39QHh9WNXVp0rvT" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add Zendesk Tumblr Insights Explore/View</h5>
+<p><a href="https://share.cleanshot.com/g0Vqv9d7sFP4sbQKTZcS" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/ssGGC8W9109SB0JsgX9J" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Fix duplicates in <code>office_name</code></h5>
+<p><a href="https://share.cleanshot.com/88PLCJKHblF22v98p3Fj" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/zBTpyYGPlqCl14WVkRG9" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add GDPR and Country custom fields to zendesk tumblr tickets table</h5>
+<p><a href="https://share.cleanshot.com/xbkR6YvtSJfzN821Kcsq" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/jFyYPqm0013bMxW5cRBs" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add <code>a8c_devex_trial_status_decided</code> transformation</h5>
+<p><a href="https://share.cleanshot.com/JRgnTwnQdzG3NvzGXTpv" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/rgHxfhRGwYYVkGFJ6LxR" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h4>Tumblr</h4>
+
+<h5>Add three new intermediate tables for dsa_user_summary DAG</h5>
+<p><a href="https://share.cleanshot.com/1kSFB566NrZCqtnlQmh1" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/2hFb2qScKBzy01GNn6qR" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Replacing subqueries with intermediate tables to improve query efficiency</h5>
+<p><a href="https://share.cleanshot.com/CtmQvCWGjXvKPWbMfPXk" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/skwF8V6NGjnMV4MFpM0k" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Update syntax in intermediate tables for users summary dag</h5>
+<p><a href="https://share.cleanshot.com/X4grv4s95JmSX7X6y1fJ" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/LWyLjsN27mZ0WBNb1VVd" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Debug spam backfill DAG in Tumblr</h5>
+<p><a href="https://share.cleanshot.com/n2lq98BQpTHLmrBG10cw" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/hYHkj4P20ZBgHvXCP5Yn" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add new metrics to stats dashboard</h5>
+<p><a href="https://share.cleanshot.com/fp4fLNKJhwpN7kXFYjGH" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/H5ZxtJxCQqqgtDg6r3Kk" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add skip check flags and wait for DAG completion to dsa_spam_backfill, dsa_marketing, and dsa_messaging</h5>
+<p><a href="https://share.cleanshot.com/ybncQWZfGl64w3smKB2H" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/ZzT40wRXkDjTR7Lts6fc" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Update kpi_review notebook to include Superset chart links to retire Vizzie links</h5>
+<p><em>There are many notebooks that I've created using Jupyter Notebook to run our analyses. However, they are quite impossible to share due to their length, so I'm only including one.</em></p>
+<p><a href="https://share.cleanshot.com/Xn283DNVbNwx00q4yMvY" target="_blank" rel="noopener noreferrer">Pull request</a> | Files changed: (<a href="https://share.cleanshot.com/qY0Rz0lzBH8cSqwshY1g" target="_blank" rel="noopener noreferrer">Part 1</a>); (<a href="https://share.cleanshot.com/04TLWx6Rn9bZS5JqNNSB" target="_blank" rel="noopener noreferrer">Part 2</a>); (<a href="https://share.cleanshot.com/DgP4c9cY8SCtrCVqMx8v" target="_blank" rel="noopener noreferrer">Part 3</a>); (<a href="https://share.cleanshot.com/mwR0ykRcnhsP35yFZd53" target="_blank" rel="noopener noreferrer">Part 4</a>)</p>
+
+<h4>Very simple PRs</h4>
+<p><em>There were many of them, but I'll include only a few.</em></p>
+
+<h5>Add new_churned_total_non_spam task</h5>
+<p><a href="https://share.cleanshot.com/bBZJ1dThLXjby2RdBZcG" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/nczxCk7s0MZQkHDY9PnG" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Fix the name of non-spam to spam_tumble_log_users table in dsa_user_summary</h5>
+<p><a href="https://share.cleanshot.com/4ls9r9stR677V9pbmz9K" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/Q3Sht8vYvFlHdbY2mxTR" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add missing argument to dsa_spam_backfill.py</h5>
+<p><a href="https://share.cleanshot.com/Sx5XX2R1xPHLvlSbNvnS" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/LqH5WpG2NfcyXxCj301q" target="_blank" rel="noopener noreferrer">Files changed</a></p>
+
+<h5>Add override=True for DROP TABLE statements</h5>
+<p><a href="https://share.cleanshot.com/vnqF6B8QWThcS9kQ72W3" target="_blank" rel="noopener noreferrer">Pull request</a> | <a href="https://share.cleanshot.com/rFptFK3vGWNLSy2gtf9T" target="_blank" rel="noopener noreferrer">Files changed</a></p>
