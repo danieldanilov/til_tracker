@@ -634,5 +634,44 @@ create_learning(
   "seeds,formatting,view,helper,html,css,escaping,sanitization,code,bold,frontend,debugging"
 )
 
+# --- Session: Apr 21, 2024 ---
+
+create_learning(
+  "CSS Layout Fix: Form container width",
+  "2024-04-21",
+  <<~'BODY',
+    Issue: Form pages (`/learnings/new`, edit) appeared narrow after CSS cleanup.
+    Context: Applying `max-width: 700px;` to the `.form-container` class during CSS refactoring restricted the entire form area.
+    Resolution: Removed the `max-width: 700px;` rule from `.form-container` in `application.css`.
+    Learning: Be mindful of the layout impact of CSS rules like `max-width` on containers. Test responsiveness and appearance after changes.
+  BODY
+  "css,layout,frontend,ui,ux,debugging,css-cleanup"
+)
+
+create_learning(
+  "Clarification: Turbo's data-turbo-confirm attribute",
+  "2024-04-21",
+  <<~'BODY',
+    Context: Discussion about the purpose of `data-turbo-confirm` attribute.
+    Explanation: It's a Hotwire/Turbo HTML attribute (`data-turbo-confirm="Are you sure?"`) that automatically triggers a browser confirmation dialog before executing a link click or form submission.
+    Use Case: Commonly used for destructive actions (like deletion) to prevent accidental clicks.
+    Learning: Utilize standard Hotwire/Turbo attributes for common UX patterns like confirmation dialogs with minimal effort.
+  BODY
+  "hotwire,turbo,javascript,frontend,ui,ux,html,attribute"
+)
+
+create_learning(
+  "Clarification: CSS Styling Consolidation Effects",
+  "2024-04-21",
+  <<~'BODY',
+    Context: Explaining visual changes after CSS cleanup (buttons, fonts, tags).
+    Buttons: Change to blue (`#007bff`) resulted from consolidating multiple previous rules for `.button` and `input[type="submit"]` into one consistent style for simplicity.
+    Fonts: Adding `font-family: inherit;` to form inputs/textareas ensures they use the main body font stack, improving consistency.
+    Tags: Change from pill-shaped (`border-radius: 10rem;`) to squared (`border-radius: 4px;`) was part of the cleanup for a cleaner look.
+    Learning: CSS consolidation aims for simplicity but can alter appearance. Explicit styles (`font-family: inherit;`) prevent varying browser defaults. Intentional style changes should be noted.
+  BODY
+  "css,frontend,ui,ux,refactoring,button,font,tags,consistency,css-cleanup"
+)
+
 puts "Finished seeding Learnings."
 puts "Created/verified #{Learning.count} learning entries."
