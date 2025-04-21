@@ -25,12 +25,10 @@ class LearningsController < ApplicationController
     end
   end
 
-  # GET /learnings/1/edit
   def edit
     @learning = Learning.find(params[:id])
   end
 
-  # PATCH/PUT /learnings/1
   def update
     @learning = Learning.find(params[:id])
     if @learning.update(learning_params)

@@ -18,11 +18,7 @@
   <div class="actions">
     <%= link_to "Log New Learning", new_learning_path, class: "button" %>
     <%# REASON: Delete button moved here. Removed Stimulus target and disabled attribute. %>
-    <%= form.submit "Delete Selected",
-                    data: {
-                      # REASON: Removed turbo_confirm as it wasn't working and will be revisited.
-                      # turbo_confirm: "Are you sure you want to delete the selected learnings?"
-                    } %>
+    <%= form.submit "Delete Selected" %>
   </div>
 
   <%# REASON: Filters moved inside form, below actions %>
