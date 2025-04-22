@@ -2,13 +2,34 @@
 
 This is a simple "Today I Learned" (TIL) tracker application built with Ruby on Rails, following the 37signals development philosophy (minimal JS, server-rendered HTML, hand-crafted CSS).
 
-It also serves as a self-referential job application, demonstrating core Rails skills.
+It serves two purposes:
+1. A functional application to log personal learnings.
+2. A self-referential job application artifact for the 37signals Junior Rails Programmer role, demonstrating rapid learning, adherence to specific constraints, and core Rails skills.
+
+## Features
+
+*   Log new learnings with title, body, tags, and the date learned.
+*   View all learnings, sorted by date learned.
+*   Filter learnings by clicking on tags.
+*   Delete multiple learnings at once.
+*   Static pages including:
+    *   **About The App:** Briefly explains the project.
+    *   **Hire Me:** Presents a case for hiring the developer (you!), linking to CV and Cover Letter.
+    *   **Writing Samples:** Showcases relevant writing examples.
 
 ## Deployment
 
 This application is deployed on Render.
 
 **Live URL:** [https://til-tracker.onrender.com/](https://til-tracker.onrender.com/)
+
+## Reflection & Learning Journey
+
+This application was built specifically for the 37signals Junior Rails Programmer application process over approximately two weeks, alongside other commitments. It represents a focused effort to learn Ruby on Rails from scratch by building a practical tool that adheres to the company's known principles (Hotwire, no CSS frameworks, simplicity). The process involved rapid learning, leveraging documentation and AI assistance, debugging environment issues (rbenv, bundler, PostgreSQL), implementing features iteratively, and documenting the journey in the app's own learning log and associated planning files (`PLANNING.md`, `TASK.md`, `LEARNINGS.md`).
+
+## Screenshots
+
+*(Placeholder: Add screenshots of key pages like the index, new form, hire me page)*
 
 ## Ruby Version
 

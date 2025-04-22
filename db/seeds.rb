@@ -673,5 +673,56 @@ create_learning(
   "css,frontend,ui,ux,refactoring,button,font,tags,consistency,css-cleanup"
 )
 
+# --- Session: Apr 22, 2024 ---
+
+create_learning(
+  "Routing Error for static files (`/documents/cv.pdf`) in development",
+  "2024-04-22",
+  <<~'BODY',
+    Issue: Linking to PDFs placed in `public/documents/` resulted in `No route matches [GET] /documents/cv.pdf` in the development environment.
+    Cause: By default, Rails development environment often doesn't serve static files from the `public` directory. This is typically enabled only in production for performance reasons.
+    Resolution:
+    1. Enabled static file serving in development by setting `config.public_file_server.enabled = true` in `config/environments/development.rb`.
+    2. Ensured the PDF files were correctly placed in `til_tracker/public/documents/`.
+    3. Restarted the Rails server (`./bin/dev`).
+    Learning: To serve static assets (like PDFs, images) directly from the `public` folder in the development environment, you must explicitly set `config.public_file_server.enabled = true` in `config/environments/development.rb` and restart the server. In production, this is usually handled by the webserver (like Nginx or Apache) or enabled by default in `production.rb`.
+  BODY
+  "rails,configuration,development,environment,static-files,public,routing,error,debugging"
+)
+
+create_learning(
+  "PDF tab title incorrect (comes from embedded metadata)",
+  "2024-04-22",
+  <<~'BODY',
+    Issue: When opening linked PDFs (`cv.pdf`, `cover_letter.pdf`), the browser tab showed an incorrect title (e.g., "Minimalist White and Grey Professional Resume").
+    Cause: The browser tab title for directly viewed PDFs is taken from the `Title` property embedded in the PDF's metadata, set when the PDF was created.
+    Resolution: Edited the PDF metadata using a dedicated PDF editor (Nitro PDF Pro, as Preview was insufficient) to change the `Title` property within each PDF file. Re-copied the modified PDFs to `public/documents/`.
+    Learning: The display title for linked assets like PDFs is controlled by the asset's internal metadata, not the HTML page linking to it. Editing requires tools capable of modifying PDF properties (Preview might not work; Acrobat, Nitro Pro, or other editors are needed).
+  BODY
+  "pdf,metadata,browser,frontend,debugging,workflow,assets"
+)
+
+create_learning(
+  "Using `mail_to` helper for email links",
+  "2024-04-22",
+  <<~'BODY',
+    Decision: Changed the static email address text on the Hire Me page to a clickable `mailto:` link using the Rails `mail_to` helper (`<%= mail_to "email@example.com" %>`).
+    Reason: Improves usability by allowing users to click the link to open their default email client. The `mail_to` helper is preferred over a raw HTML `mailto:` link as it can offer minor obfuscation against simple bots and is the conventional Rails way.
+    Learning: Use the `mail_to` view helper in Rails to generate clickable email links for better user experience and adherence to Rails conventions.
+  BODY
+  "rails,view,helper,html,frontend,ui,ux,mailto,email"
+)
+
+create_learning(
+  "Refining 'Hire Me' page narrative (Honesty vs. Potential)",
+  "2024-04-22",
+  <<~'BODY',
+    Context: Revised the content of the `hire_me.html.erb` page to more accurately reflect the applicant's journey and experience level for the 37signals Junior Developer role.
+    Strategy: Moved away from implying extensive prior Rails experience. Instead, explicitly stated that professional Rails experience is limited but framed the TIL Tracker project itself as strong evidence of rapid learning, problem-solving under pressure, ability to adopt the 37signals way, and high motivation. Emphasized transferable skills from previous roles (data analysis, communication).
+    Learning: When applying for roles, especially stretch roles, honesty about specific experience gaps combined with clear demonstration of learning ability, relevant transferable skills, and genuine enthusiasm/alignment with the company's values can be a very effective narrative. Framing projects as direct responses to the application requirements strengthens the message.
+  BODY
+  "job-application,writing,content-strategy,communication,career,37signals"
+)
+
 puts "Finished seeding Learnings."
 puts "Created/verified #{Learning.count} learning entries."
