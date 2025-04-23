@@ -722,5 +722,19 @@ create_learning(
   "project-management"
 )
 
+create_learning(
+  "Database Reset Issues & `db:seed:replant` Workaround on Render",
+  "2024-04-23", # Assuming today's date
+  <<~'BODY',
+    Context: My learnings changes in `seeds.rb` weren't reflected on Render, even after deploying with `db:migrate; db:seed` in the Pre-Deploy command. I needed a way to ensure a fresh seed.
+    Attempt 1 (`db:reset` in shell): Running `DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:reset` in the Render shell failed with `PG::ObjectInUse` because active web server connections prevented dropping the database.
+    Attempt 2 (Terminate connections): Trying `SELECT pg_terminate_backend(...)` from `rails dbconsole` failed with permission errors, as my application user lacked `SUPERUSER` rights.
+    Attempt 3 (Scale down): Scaling the web service instances to 0 didn't work either (reason unclear).
+    Successful Workaround (`db:seed:replant`): Using `DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:seed:replant` in the Pre-Deploy Command field for *one* deployment successfully reset the data. This command truncates the relevant tables before seeding.
+    Learning: `db:reset` is difficult on Render without SUPERUSER privileges or reliably stopping connections. `db:seed:replant` can force a reset in the pre-deploy step but is destructive and must be removed immediately after use. The standard `db:migrate; db:seed` (using `find_or_create_by!`) is the safe, idempotent command for regular deploys, ensuring data in `seeds.rb` is present/updated without deleting other records.
+  BODY
+  "deployment-ci,database,seeds,render,debugging,workflow,reset,replant"
+)
+
 puts "Finished seeding Learnings."
 puts "Created/verified #{Learning.count} learning entries."
