@@ -1,4 +1,12 @@
-<%= form_with(model: learning, local: true, html: { class: "form-container" }) do |form| %>
+<%= form_with(model: learning, local: true, html: {
+  class: "form-container",
+  data: {
+    controller: "posthog",
+    action: "submit->posthog#submit",
+    posthog_form_id_value: "learning_form",
+    posthog_event_value: "learning_form_submitted"
+  }
+}) do |form| %>
   <% if learning.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(learning.errors.count, "error") %> prohibited this learning from being saved:</h2>
