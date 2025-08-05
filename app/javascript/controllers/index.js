@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import PosthogController from "./posthog_controller"
+application.register("posthog", PosthogController)
+
 import SelectableController from "./selectable_controller"
 application.register("selectable", SelectableController)
